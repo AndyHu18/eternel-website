@@ -383,61 +383,82 @@ body {
 /* ========== Contact Section ========== */
 .contact {
   text-align: center;
-  padding: 80px 32px;
-  max-width: 640px;
+  padding: 96px 32px;
+  max-width: 600px;
   margin: 0 auto;
   border-top: 1px solid rgba(201, 169, 110, 0.12);
 }
 
 .contact-title {
   font-family: var(--font-display);
-  font-size: clamp(22px, 3vw, 32px);
+  font-size: clamp(24px, 3vw, 34px);
   font-weight: 400;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.25em;
   color: var(--gold);
-  margin-bottom: 48px;
+  margin-bottom: 40px;
 }
 
-.contact-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  margin-bottom: 48px;
+.contact-name {
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--cream);
+  letter-spacing: 0.15em;
+  margin-bottom: 8px;
 }
 
-.contact-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-bottom: 16px;
-  border-bottom: 1px solid rgba(201, 169, 110, 0.08);
-}
-
-.contact-label {
+.contact-location {
   font-size: 15px;
   font-weight: 300;
   color: var(--text-secondary);
   letter-spacing: 0.1em;
+  margin-bottom: 40px;
 }
 
-.contact-value {
-  font-size: 16px;
-  font-weight: 400;
-  color: var(--cream);
-  letter-spacing: 0.05em;
+.contact-phone {
+  margin-bottom: 32px;
 }
 
-.contact-link {
+.phone-number {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 38px);
+  font-weight: 300;
+  letter-spacing: 0.12em;
+  color: var(--white);
   text-decoration: none;
   transition: color 0.3s;
+  margin-bottom: 10px;
 }
 
-.contact-link:hover {
+.phone-number:hover {
   color: var(--gold);
 }
 
+.contact-hours {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--text-secondary);
+  letter-spacing: 0.2em;
+}
+
+.contact-email {
+  display: block;
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--text-secondary);
+  text-decoration: none;
+  letter-spacing: 0.08em;
+  transition: color 0.3s;
+  margin-bottom: 48px;
+}
+
+.contact-email:hover {
+  color: var(--gold);
+  border-color: var(--gold);
+}
+
 .contact-cta {
-  margin-top: 8px;
+  display: inline-block;
 }
 
 /* ========== Subscribe Footer ========== */
