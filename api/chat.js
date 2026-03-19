@@ -1,15 +1,15 @@
 /**
  * ÉTERNEL — Vercel Serverless Function for AI Chat
- * Proxies requests to Gemini API, keeping the API key server-side.
+ * Receives Gemini-format requests from frontend, proxies to Claude API.
+ * Converts between Gemini <-> Claude formats so frontend JS stays unchanged.
  *
- * Environment variable required: GEMINI_API_KEY
+ * Environment variable required: ANTHROPIC_API_KEY
  */
 
-const GEMINI_URL =
-  "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent";
+const CLAUDE_URL = "https://api.anthropic.com/v1/messages";
+const CLAUDE_MODEL = "claude-haiku-4-5-20251001";
 
 export default async function handler(req, res) {
-  // CORS headers
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
@@ -22,16 +22,38 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
-  const apiKey = process.env.GEMINI_API_KEY;
+  const apiKey = process.env.ANTHROPIC_API_KEY;
   if (!apiKey) {
     return res.status(500).json({ error: "API key not configured" });
   }
 
   try {
-    const response = await fetch(`${GEMINI_URL}?key=${apiKey}`, {
+    const { system_instruction, contents, generationConfig } = req.body;
+
+    // Extract system prompt from Gemini format
+    const systemText = system_instruction?.parts?.[0]?.text || "";
+
+    // Convert Gemini messages to Claude format
+    const messages = (contents || []).map((msg) => ({
+      role: msg.role === "model" ? "assistant" : "user",
+      content: msg.parts?.[0]?.text || "",
+    }));
+
+    const claudeBody = {
+      model: CLAUDE_MODEL,
+      max_tokens: generationConfig?.maxOutputTokens || 1024,
+      system: systemText,
+      messages,
+    };
+
+    const response = await fetch(CLAUDE_URL, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(req.body),
+      headers: {
+        "Content-Type": "application/json",
+        "x-api-key": apiKey,
+        "anthropic-version": "2023-06-01",
+      },
+      body: JSON.stringify(claudeBody),
     });
 
     const data = await response.json();
@@ -39,10 +61,24 @@ export default async function handler(req, res) {
     if (!response.ok) {
       return res
         .status(response.status)
-        .json({ error: data.error?.message || "Gemini API error" });
+        .json({ error: data.error?.message || "Claude API error" });
     }
 
-    return res.status(200).json(data);
+    // Convert Claude response back to Gemini format (frontend expects this)
+    const text = data.content?.[0]?.text || "抱歉，我暫時無法回應。";
+
+    const geminiResponse = {
+      candidates: [
+        {
+          content: {
+            parts: [{ text }],
+            role: "model",
+          },
+        },
+      ],
+    };
+
+    return res.status(200).json(geminiResponse);
   } catch (error) {
     return res.status(500).json({ error: "Internal server error" });
   }
