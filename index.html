@@ -124,16 +124,18 @@
 
     <!-- Map -->
     <section class="map-section">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14568.95!2d120.6637!3d24.1477!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693d640e0cbe37%3A0x73a4dbb72b6cd30!2z5Y-w5Lit5biC6KW_5Y2A!5e0!3m2!1szh-TW!2stw!4v1"
-        width="100%"
-        height="100%"
-        style="border: 0"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-        title="ÉTERNEL 位置"
-      ></iframe>
+      <div class="map-frame">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14568.95!2d120.6637!3d24.1477!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693d640e0cbe37%3A0x73a4dbb72b6cd30!2z5Y-w5Lit5biC6KW_5Y2A!5e0!3m2!1szh-TW!2stw!4v1"
+          width="100%"
+          height="100%"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="ÉTERNEL 位置"
+        ></iframe>
+      </div>
     </section>
 
     <!-- Subscribe -->
@@ -151,10 +153,6 @@
 
     <!-- Floating Ring Button -->
     <div class="ring-fab-wrapper">
-      <div class="ring-fab-label" aria-hidden="true">
-        <span class="ring-fab-label-text"></span>
-        <span class="ring-fab-cursor"></span>
-      </div>
       <a
         href="https://line.me/ti/p/~YOUR_LINE_ID"
         target="_blank"
@@ -165,6 +163,10 @@
         <img src="images/ring-fab.png" alt="諮詢" width="48" height="48" />
         <span class="ring-fab-badge">1</span>
       </a>
+      <div class="ring-fab-label" aria-hidden="true">
+        <span class="ring-fab-label-text"></span>
+        <span class="ring-fab-cursor"></span>
+      </div>
     </div>
 
     <script src="animations.js"></script>
