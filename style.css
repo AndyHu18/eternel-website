@@ -587,6 +587,7 @@ body {
   display: block;
   font-family: var(--font-display);
   font-size: clamp(28px, 4vw, 38px);
+  min-height: 44px;
   font-weight: 300;
   letter-spacing: 0.12em;
   color: var(--white);
@@ -607,9 +608,11 @@ body {
 }
 
 .contact-email {
-  display: block;
+  display: inline-block;
   font-size: 15px;
   font-weight: 300;
+  padding: 12px 0;
+  min-height: 44px;
   color: var(--text-secondary);
   text-decoration: none;
   letter-spacing: 0.08em;
@@ -792,6 +795,7 @@ body {
   }
 
   .logo-text {
+    font-size: clamp(2rem, 9vw, 3rem);
     letter-spacing: 0.2em;
   }
 
@@ -811,6 +815,7 @@ body {
 
   .main-nav a {
     font-size: 14px;
+    padding: 12px 4px;
   }
 
   .tagline {
