@@ -152,7 +152,36 @@ const ChatbotUI = {
 
   formatMessage(text) {
     const safe = this.escapeHtml(text);
-    return safe.replace(/\n/g, "<br>");
+    let html = safe.replace(/\n/g, "<br>");
+
+    // Phone numbers → clickable call buttons
+    html = html.replace(
+      /0978[-\s]?001[-\s]?151/g,
+      '<a href="tel:0978001151" class="chat-action-btn chat-action-phone">0978-001-151</a>',
+    );
+
+    // LINE mention → LINE button + QR code
+    if (/LINE/i.test(html)) {
+      const hasLineBtn = /chat-action-line/.test(html);
+      if (!hasLineBtn) {
+        html +=
+          '<div class="chat-action-group">' +
+          '<a href="https://line.me/ti/p/~YOUR_LINE_ID" target="_blank" rel="noopener" class="chat-action-btn chat-action-line">加入 LINE 好友</a>' +
+          '<img src="images/line-qr.png" alt="LINE QR Code" class="chat-qr-code" onerror="this.style.display=\'none\'">' +
+          "</div>";
+      }
+    }
+
+    // Location / studio mention → map button
+    if (/台中|西區|工作室|親臨/.test(html)) {
+      const hasMapBtn = /chat-action-map/.test(html);
+      if (!hasMapBtn) {
+        html +=
+          '<a href="https://maps.google.com/?q=台中市西區" target="_blank" rel="noopener" class="chat-action-btn chat-action-map">查看地圖</a>';
+      }
+    }
+
+    return html;
   },
 
   isWindowOpen() {
