@@ -441,6 +441,23 @@
   }
 }
 
+.agent-demo-section .agent-cover {
+  width: 100%;
+  max-height: 140px;
+  overflow: hidden;
+}
+.agent-demo-section .agent-cover img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.7);
+  transition: filter 0.4s ease;
+}
+.agent-demo-section .agent-card:hover .agent-cover img {
+  filter: brightness(0.85);
+}
+
 .agent-demo-section .agent-body {
   padding: 14px 18px;
 }

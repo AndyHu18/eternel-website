@@ -897,11 +897,11 @@ function runAgentDemo(container) {
             "%</span>",
         );
         body.appendChild(row);
-        await showEl(row, 150);
-        await safeWait(50);
+        await showEl(row, 300);
+        await safeWait(200);
         row.querySelector(".conf-fill").style.width = conf.pct + "%";
       }
-      await safeWait(200);
+      await safeWait(600);
       updateMetric(confEl, agent.confidence[0].pct + "%");
 
       // --- Results Grid ---
@@ -921,14 +921,14 @@ function runAgentDemo(container) {
           "</div></div>";
       });
       body.appendChild(grid);
-      await safeWait(100);
+      await safeWait(300);
       smoothScrollTo(main, grid);
       const cards = grid.querySelectorAll(".result-card");
       for (let ci = 0; ci < cards.length; ci++) {
-        await safeWait(80);
+        await safeWait(250);
         cards[ci].classList.add("visible");
       }
-      await safeWait(200);
+      await safeWait(800);
 
       // --- Recommendation ---
       const rec = makeEl(
@@ -943,9 +943,9 @@ function runAgentDemo(container) {
       rec.style.borderColor = agent.colorHex;
       rec.style.background = agent.glow;
       body.appendChild(rec);
-      await showEl(rec, 200);
+      await showEl(rec, 400);
       smoothScrollTo(main, rec);
-      await safeWait(300);
+      await safeWait(1200);
 
       // --- Badge done ---
       card.classList.remove("agd-processing");
@@ -977,12 +977,12 @@ function runAgentDemo(container) {
             "</span>",
         );
         main.appendChild(comm);
-        await showEl(comm, 200);
+        await showEl(comm, 400);
         smoothScrollTo(main, comm);
-        await safeWait(500);
+        await safeWait(1000);
       }
 
-      await safeWait(400);
+      await safeWait(800);
     }
 
     if (cancelled) return;
@@ -1006,12 +1006,12 @@ function runAgentDemo(container) {
     });
     summary.innerHTML = sumHTML;
     main.appendChild(summary);
-    await showEl(summary, 300);
+    await showEl(summary, 500);
     smoothScrollTo(main, summary);
 
     const planRows = summary.querySelectorAll(".plan-row");
     for (let pi = 0; pi < planRows.length; pi++) {
-      await safeWait(150);
+      await safeWait(400);
       planRows[pi].classList.add("visible");
     }
 
