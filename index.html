@@ -11,12 +11,47 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/agent-demo.css" />
+    <link rel="stylesheet" href="css/chatbot/chatbot-toggle.css" />
+    <link rel="stylesheet" href="css/chatbot/chatbot-window.css" />
+    <link rel="stylesheet" href="css/chatbot/chatbot-messages.css" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%23c9a96e'>É</text></svg>"
+    />
+    <meta
+      name="description"
+      content="ÉTERNEL 永恆之愛 — 台中奢華手工珠寶品牌，守護每一份愛的承諾。預約諮詢：0978-001-151"
+    />
+    <meta property="og:title" content="ÉTERNEL — 永恆之愛・奢華典藏" />
+    <meta
+      property="og:description"
+      content="我們不販售珠寶。我們守護承諾。台中西區奢華珠寶品牌。"
+    />
+    <meta
+      property="og:image"
+      content="https://eternel-website-kappa.vercel.app/images/hero.jpg"
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://eternel-website-kappa.vercel.app/"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
   </head>
   <body>
+    <a href="#contact" class="skip-link">跳至聯繫資訊</a>
+
     <!-- Hero -->
     <section class="hero">
       <div class="hero-image">
-        <img src="images/hero.jpg" alt="ÉTERNEL" class="hero-fallback" />
+        <img
+          src="images/hero.jpg"
+          alt="ÉTERNEL"
+          class="hero-fallback"
+          width="1408"
+          height="768"
+        />
         <video
           class="hero-video hero-video-desktop"
           autoplay
@@ -87,23 +122,28 @@
     <section class="showcase">
       <div class="showcase-grid">
         <div class="category-card">
-          <img src="images/card1.jpg" alt="珠寶" />
+          <img src="images/card1.jpg" alt="珠寶" width="1408" height="768" />
           <div class="category-overlay"><h3>珠寶</h3></div>
         </div>
         <div class="category-card">
-          <img src="images/card2.jpg" alt="故事" />
+          <img src="images/card2.jpg" alt="故事" width="1408" height="768" />
           <div class="category-overlay"><h3>故事</h3></div>
         </div>
         <div class="category-card">
-          <img src="images/card3.jpg" alt="情書" />
+          <img src="images/card3.jpg" alt="情書" width="1408" height="768" />
           <div class="category-overlay"><h3>情書</h3></div>
         </div>
         <div class="category-card">
-          <img src="images/card4.jpg" alt="典藏" />
+          <img src="images/card4.jpg" alt="典藏" width="1408" height="768" />
           <div class="category-overlay"><h3>典藏</h3></div>
         </div>
         <div class="diamond-area">
-          <img src="images/diamond.jpg" alt="Diamond Ring" />
+          <img
+            src="images/diamond.jpg"
+            alt="Diamond Ring"
+            width="1408"
+            height="768"
+          />
         </div>
       </div>
 
@@ -119,11 +159,63 @@
       </div>
     </section>
 
+    <!-- Agent Demo -->
+    <section class="agd-section-wrapper" id="agent-demo">
+      <div class="agd-section-header">
+        <div class="agd-section-badge">AI CONSULTANT</div>
+        <h2 class="agd-section-title">智能珠寶顧問</h2>
+        <p class="agd-section-sub">
+          三位 AI 代理人即時分析您的風格、匹配最適珠寶、規劃最優預算。<br />
+          體驗 ÉTERNEL 的智能諮詢流程。
+        </p>
+      </div>
+      <div class="agent-demo-section">
+        <div class="agd-toolbar">
+          <div class="agd-status">
+            <span class="agd-status-dot"></span>
+            <span>待機中</span>
+          </div>
+          <div class="agd-metrics">
+            <div class="agd-metric">
+              <span class="agd-metric-label">經過</span>
+              <span class="elapsed-time">0:00</span>
+            </div>
+            <div class="agd-metric-divider"></div>
+            <div class="agd-metric">
+              <span class="agd-metric-label">代理人</span>
+              <span class="m-agents">0 / 3</span>
+            </div>
+            <div class="agd-metric-divider"></div>
+            <div class="agd-metric">
+              <span class="agd-metric-label">信心度</span>
+              <span class="m-conf">—</span>
+            </div>
+          </div>
+        </div>
+        <div class="agd-main"></div>
+        <div class="agd-scroll-hint">
+          <svg
+            viewBox="0 0 24 12"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M2 2l10 8 10-8" />
+          </svg>
+        </div>
+      </div>
+    </section>
+
     <!-- Podcast -->
     <section class="podcast-section" id="podcast">
       <div class="podcast-inner">
         <div class="podcast-cover">
-          <img src="images/broadcast-hosts.jpg" alt="ÉTERNEL Podcast" />
+          <img
+            src="images/broadcast-hosts.jpg"
+            alt="ÉTERNEL Podcast"
+            width="1376"
+            height="768"
+          />
           <div class="podcast-badge">PODCAST</div>
         </div>
         <div class="podcast-player">
@@ -227,7 +319,7 @@
       </div>
     </footer>
 
-    <!-- Floating Ring Button -->
+    <!-- Floating Ring Button (LINE) -->
     <div class="ring-fab-wrapper">
       <a
         href="https://line.me/ti/p/~YOUR_LINE_ID"
@@ -245,6 +337,48 @@
       </div>
     </div>
 
+    <!-- AI Chatbot -->
+    <div class="chat-widget-container">
+      <div class="chat-hint" id="chatHint">
+        <span class="chat-hint-text" id="chatHintText">珠寶訂製諮詢</span>
+        <span class="chat-hint-arrow"></span>
+      </div>
+      <button class="chat-toggle" id="chatToggle" aria-label="開啟 AI 顧問">
+        <span class="chat-toggle-icon">É</span>
+        <span class="chat-notification">1</span>
+      </button>
+    </div>
+
+    <div class="chat-window" id="chatWindow">
+      <div class="chat-header">
+        <div class="chat-header-info">
+          <div class="chat-avatar">É</div>
+          <div class="chat-header-text">
+            <h4>ÉTERNEL 顧問</h4>
+            <span>隨時為您服務</span>
+          </div>
+        </div>
+        <button class="chat-close" id="chatClose" aria-label="關閉">×</button>
+      </div>
+      <div class="chat-messages" id="chatMessages"></div>
+      <div class="chat-input-area">
+        <form class="chat-form" id="chatForm">
+          <input
+            type="text"
+            class="chat-input"
+            id="chatInput"
+            placeholder="輸入您的問題..."
+            maxlength="500"
+          />
+          <button type="submit" class="chat-send" aria-label="送出">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+              <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
+            </svg>
+          </button>
+        </form>
+      </div>
+    </div>
+
     <audio
       id="podcastAudio"
       preload="metadata"
@@ -252,5 +386,11 @@
     ></audio>
     <script src="animations.js"></script>
     <script src="podcast-player.js"></script>
+    <script src="js/agent-demo-engine.js"></script>
+    <script src="chatbot-config.js"></script>
+    <script src="chatbot-api.js"></script>
+    <script src="chatbot-core.js"></script>
+    <script src="chatbot-ui.js"></script>
+    <script src="chatbot-hints.js"></script>
   </body>
 </html>
