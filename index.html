@@ -26,8 +26,10 @@
             <span class="ornament-dot"></span>
             <span class="ornament-line"></span>
           </div>
-          <h1 class="logo-text">ÉTERNEL</h1>
-          <p class="logo-subtitle">永恆之愛・奢華典藏</p>
+          <h1 class="logo-text" data-typewriter="ÉTERNEL">ÉTERNEL</h1>
+          <p class="logo-subtitle" data-typewriter-delay="1200">
+            永恆之愛・奢華典藏
+          </p>
         </div>
         <div class="hero-badge">
           <span>探索永恆之愛</span>
@@ -87,7 +89,10 @@
 
       <!-- Feature Row -->
       <div class="feature-row">
-        <h2 class="feature-left">前所未見的愛情。<br />此刻綻放。</h2>
+        <h2
+          class="feature-left typewriter-scroll"
+          data-lines='["前所未見的愛情。","此刻綻放。"]'
+        ></h2>
         <p class="feature-right">
           走進 ÉTERNEL 的世界，<br />見證永恆的第一人。
         </p>
@@ -117,6 +122,20 @@
       <a href="tel:0978001151" class="cta-button contact-cta">預約諮詢</a>
     </section>
 
+    <!-- Map -->
+    <section class="map-section">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14568.95!2d120.6637!3d24.1477!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693d640e0cbe37%3A0x73a4dbb72b6cd30!2z5Y-w5Lit5biC6KW_5Y2A!5e0!3m2!1szh-TW!2stw!4v1"
+        width="100%"
+        height="100%"
+        style="border: 0"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="ÉTERNEL 位置"
+      ></iframe>
+    </section>
+
     <!-- Subscribe -->
     <footer class="subscribe">
       <div class="subscribe-inner">
@@ -129,16 +148,25 @@
         </div>
       </div>
     </footer>
+
     <!-- Floating Ring Button -->
-    <a
-      href="https://line.me/ti/p/~YOUR_LINE_ID"
-      target="_blank"
-      rel="noopener"
-      class="ring-fab"
-      aria-label="LINE 諮詢"
-    >
-      <img src="images/ring-fab.png" alt="諮詢" width="56" height="56" />
-      <span class="ring-fab-badge">1</span>
-    </a>
+    <div class="ring-fab-wrapper">
+      <div class="ring-fab-label" aria-hidden="true">
+        <span class="ring-fab-label-text"></span>
+        <span class="ring-fab-cursor"></span>
+      </div>
+      <a
+        href="https://line.me/ti/p/~YOUR_LINE_ID"
+        target="_blank"
+        rel="noopener"
+        class="ring-fab"
+        aria-label="LINE 諮詢"
+      >
+        <img src="images/ring-fab.png" alt="諮詢" width="48" height="48" />
+        <span class="ring-fab-badge">1</span>
+      </a>
+    </div>
+
+    <script src="animations.js"></script>
   </body>
 </html>
