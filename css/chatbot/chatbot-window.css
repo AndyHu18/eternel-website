@@ -1,0 +1,199 @@
+/**
+ * @file    : css/chatbot/chatbot-window.css
+ * @purpose : 聊天視窗主體、標題列、輸入區樣式（ÉTERNEL 深黑金配色）
+ */
+
+/* ========================================
+   Chat Window
+   ======================================== */
+.chat-window {
+  position: fixed;
+  bottom: 104px;
+  right: 24px;
+  z-index: 999;
+  width: 380px;
+  max-width: calc(100vw - 2rem);
+  height: 520px;
+  max-height: calc(100vh - 150px);
+  background: #161616;
+  border: 1px solid rgba(201, 169, 110, 0.2);
+  border-radius: 20px;
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.4),
+    0 8px 24px rgba(201, 169, 110, 0.08);
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(16px) scale(0.96);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.chat-window.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+/* ========================================
+   Chat Header
+   ======================================== */
+.chat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+  border-bottom: 1px solid rgba(201, 169, 110, 0.15);
+  position: relative;
+}
+
+.chat-header-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.chat-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #c9a96e 0%, #a8874d 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: #0a0a0a;
+  font-size: 0.7rem;
+  font-family: "Cormorant Garamond", serif;
+  letter-spacing: 0.05em;
+  border: 2px solid rgba(201, 169, 110, 0.3);
+}
+
+.chat-header-text h4 {
+  color: #c9a96e;
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: 0.05em;
+  font-family: "Cormorant Garamond", "Noto Serif TC", serif;
+}
+
+.chat-header-text span {
+  color: rgba(184, 169, 154, 0.75);
+  font-size: 0.75rem;
+}
+
+/* Online indicator dot */
+.chat-header-text span::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #c9a96e;
+  margin-right: 5px;
+  vertical-align: middle;
+  box-shadow: 0 0 4px rgba(201, 169, 110, 0.5);
+}
+
+.chat-close {
+  background: rgba(201, 169, 110, 0.1);
+  border: none;
+  color: #c9a96e;
+  cursor: pointer;
+  min-width: 36px;
+  min-height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  line-height: 1;
+  border-radius: 50%;
+  opacity: 0.8;
+  transition: all 0.2s ease;
+  font-size: 1.2rem;
+}
+
+.chat-close:hover {
+  opacity: 1;
+  background: rgba(201, 169, 110, 0.2);
+}
+
+/* ========================================
+   Chat Input Area
+   ======================================== */
+.chat-input-area {
+  padding: 12px 16px;
+  border-top: 1px solid rgba(201, 169, 110, 0.1);
+  background: #121212;
+}
+
+.chat-form {
+  display: flex;
+  gap: 8px;
+}
+
+.chat-input {
+  flex: 1;
+  padding: 10px 14px;
+  background: #1e1e1e;
+  border: 1px solid rgba(201, 169, 110, 0.15);
+  border-radius: 12px;
+  color: #f5efe6;
+  font-size: 0.875rem;
+  font-family: "Noto Serif TC", serif;
+  transition: all 0.2s ease;
+}
+
+.chat-input:focus {
+  outline: none;
+  border-color: #c9a96e;
+  box-shadow: 0 0 0 3px rgba(201, 169, 110, 0.1);
+}
+
+.chat-input::placeholder {
+  color: #6b5d50;
+}
+
+.chat-send {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #c9a96e 0%, #a8874d 100%);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(201, 169, 110, 0.25);
+}
+
+.chat-send svg {
+  color: #0a0a0a;
+}
+
+.chat-send:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(201, 169, 110, 0.4);
+}
+
+.chat-send:active {
+  transform: scale(0.95);
+}
+
+/* ========================================
+   Responsive
+   ======================================== */
+@media (max-width: 480px) {
+  .chat-window {
+    right: 12px;
+    left: 12px;
+    bottom: 80px;
+    width: auto;
+    height: 60vh;
+  }
+}

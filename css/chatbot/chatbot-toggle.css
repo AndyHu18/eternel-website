@@ -1,0 +1,173 @@
+/**
+ * @file    : css/chatbot/chatbot-toggle.css
+ * @purpose : 聊天按鈕、提示氣泡、通知徽章樣式（ÉTERNEL 深黑金配色）
+ */
+
+/* ========================================
+   Chat Widget Container
+   ======================================== */
+.chat-widget-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ========================================
+   Chat Toggle Button
+   ======================================== */
+.chat-toggle {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #ddc08a 0%, #c9a96e 50%, #a8874d 100%);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  cursor: pointer;
+  box-shadow:
+    0 4px 20px rgba(201, 169, 110, 0.35),
+    inset 0 2px 4px rgba(255, 255, 255, 0.2),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.chat-toggle:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 28px rgba(201, 169, 110, 0.5);
+}
+
+.chat-toggle.active {
+  transform: rotate(0deg) scale(0.95);
+  background: linear-gradient(145deg, #a8874d 0%, #8a6e3a 100%);
+}
+
+.chat-toggle-icon {
+  font-size: 1.1rem;
+  color: #0a0a0a;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  font-family: "Cormorant Garamond", serif;
+}
+
+/* ========================================
+   Notification Badge
+   ======================================== */
+.chat-notification {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #c9a96e;
+  color: #0a0a0a;
+  font-size: 0.7rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: badgePulse 2s infinite;
+  border: 2px solid #0a0a0a;
+}
+
+@keyframes badgePulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(201, 169, 110, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(201, 169, 110, 0);
+  }
+}
+
+/* ========================================
+   Chat Hint Bubble
+   ======================================== */
+.chat-hint {
+  position: relative;
+  background: linear-gradient(135deg, #c9a96e 0%, #a8874d 100%);
+  color: #0a0a0a;
+  padding: 8px 14px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+  box-shadow:
+    0 4px 12px rgba(201, 169, 110, 0.3),
+    inset 0 1px 2px rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  animation: hintBounce 3s ease-in-out infinite;
+  cursor: pointer;
+  font-family: "Noto Serif TC", serif;
+}
+
+.chat-hint:hover {
+  background: linear-gradient(135deg, #ddc08a 0%, #c9a96e 100%);
+}
+
+.chat-hint-arrow {
+  position: absolute;
+  right: -8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-left: 8px solid #c9a96e;
+}
+
+.chat-hint:hover .chat-hint-arrow {
+  border-left-color: #ddc08a;
+}
+
+.chat-hint-text {
+  display: inline-block;
+  transition: opacity 0.3s ease;
+}
+
+@keyframes hintBounce {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-4px);
+  }
+}
+
+/* ========================================
+   Responsive
+   ======================================== */
+@media (max-width: 768px) {
+  .chat-hint {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .chat-widget-container {
+    right: 16px;
+    bottom: 16px;
+  }
+
+  .chat-toggle {
+    width: 55px;
+    height: 55px;
+  }
+
+  .chat-hint {
+    max-width: 120px;
+    font-size: 0.8rem;
+    padding: 6px 10px;
+  }
+}

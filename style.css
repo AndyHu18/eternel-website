@@ -445,7 +445,7 @@ body {
 /* ========== Floating Ring Button + Carousel ========== */
 .ring-fab-wrapper {
   position: fixed;
-  bottom: 32px;
+  bottom: 100px;
   right: 32px;
   z-index: 1000;
   display: flex;
@@ -1150,9 +1150,9 @@ body {
     height: 160px;
   }
 
-  /* FAB */
+  /* FAB - moved up to avoid chatbot overlap */
   .ring-fab-wrapper {
-    bottom: 20px;
+    bottom: 84px;
     right: 16px;
   }
 
