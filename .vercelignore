@@ -1,0 +1,6 @@
+generate-*.js
+*.wav
+eternel-bgm.mp3
+compare-*.mp4
+.claude/
+.git/

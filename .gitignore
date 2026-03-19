@@ -1,7 +1,12 @@
 node_modules/
 .env
 .claude/
-generate-images.js
-generate-images-v2.js
-
 .vercel
+
+# Dev scripts (image/video/TTS generators)
+generate-*.js
+
+# Intermediate media (not used by site)
+*.wav
+eternel-bgm.mp3
+compare-*.mp4
