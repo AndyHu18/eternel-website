@@ -3,3 +3,5 @@ node_modules/
 .claude/
 generate-images.js
 generate-images-v2.js
+
+.vercel

@@ -16,7 +16,27 @@
     <!-- Hero -->
     <section class="hero">
       <div class="hero-image">
-        <img src="images/hero.jpg" alt="ÉTERNEL" />
+        <img src="images/hero.jpg" alt="ÉTERNEL" class="hero-fallback" />
+        <video
+          class="hero-video hero-video-desktop"
+          autoplay
+          muted
+          loop
+          playsinline
+          poster="images/hero.jpg"
+        >
+          <source src="eternel-hero-video.mp4" type="video/mp4" />
+        </video>
+        <video
+          class="hero-video hero-video-mobile"
+          autoplay
+          muted
+          loop
+          playsinline
+          poster="images/hero.jpg"
+        >
+          <source src="eternel-hero-mobile.mp4" type="video/mp4" />
+        </video>
       </div>
       <div class="hero-overlay"></div>
       <div class="hero-content">
@@ -99,6 +119,62 @@
       </div>
     </section>
 
+    <!-- Podcast -->
+    <section class="podcast-section" id="podcast">
+      <div class="podcast-inner">
+        <div class="podcast-cover">
+          <img src="images/broadcast-hosts.jpg" alt="ÉTERNEL Podcast" />
+          <div class="podcast-badge">PODCAST</div>
+        </div>
+        <div class="podcast-player">
+          <div class="podcast-title-row">
+            <h3 class="podcast-name">ÉTERNEL 永恆之聲</h3>
+            <span class="podcast-ep">EP.1 — 永恆的承諾</span>
+          </div>
+          <div class="podcast-controls">
+            <button
+              class="podcast-play-btn"
+              id="podcastPlayBtn"
+              aria-label="播放"
+            >
+              <svg
+                class="podcast-icon-play"
+                viewBox="0 0 24 24"
+                width="20"
+                height="20"
+                fill="currentColor"
+              >
+                <path d="M8 5v14l11-7z" />
+              </svg>
+              <svg
+                class="podcast-icon-pause"
+                viewBox="0 0 24 24"
+                width="20"
+                height="20"
+                fill="currentColor"
+                style="display: none"
+              >
+                <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+              </svg>
+            </button>
+            <div class="podcast-progress-wrap">
+              <div class="podcast-progress-bar">
+                <div
+                  class="podcast-progress-fill"
+                  id="podcastProgressFill"
+                ></div>
+              </div>
+              <div class="podcast-time">
+                <span id="podcastTimeCurrent">0:00</span>
+                <span id="podcastTimeTotal">0:00</span>
+              </div>
+            </div>
+          </div>
+          <div class="podcast-wave" id="podcastWave"></div>
+        </div>
+      </div>
+    </section>
+
     <!-- CTA -->
     <section class="cta-section">
       <a href="#about" class="cta-button">探索品牌</a>
@@ -169,6 +245,12 @@
       </div>
     </div>
 
+    <audio
+      id="podcastAudio"
+      preload="metadata"
+      src="eternel-podcast-final.mp3"
+    ></audio>
     <script src="animations.js"></script>
+    <script src="podcast-player.js"></script>
   </body>
 </html>
