@@ -319,11 +319,11 @@ const makeMeaningfulSparkline = (label, color, count = 8) => {
 
 // Radar chart — Diamond 4C Analysis
 const RADAR_DIMS = [
-  { label: "克拉", value: 70 },
-  { label: "顏色", value: 90 },
-  { label: "淨度", value: 85 },
-  { label: "切工", value: 98 },
-  { label: "火光", value: 95 },
+  { label: "重量", value: 78, display: "0.7ct" },
+  { label: "顏色", value: 90, display: "E" },
+  { label: "淨度", value: 85, display: "VS1" },
+  { label: "切工", value: 98, display: "3EX" },
+  { label: "火光", value: 95, display: "極優" },
 ];
 
 const buildRadarChartHTML = () => {
@@ -417,7 +417,7 @@ const buildRadarChartHTML = () => {
       '</span><span class="agd-radar-val" style="color:' +
       color +
       '">' +
-      d.value +
+      (d.display || d.value) +
       "</span></div>";
   });
 
@@ -618,7 +618,8 @@ const smoothScrollTo = (container, el, duration = 600) => {
     container.scrollHeight - container.clientHeight,
   );
   const dist = target - start;
-  if (Math.abs(dist) < 2) return;
+  // Only scroll downward — never scroll back up (prevents jump-back bug)
+  if (dist <= 2) return;
   let t0 = null;
   const step = (ts) => {
     if (t0 === null) t0 = ts;
